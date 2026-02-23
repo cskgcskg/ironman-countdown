@@ -3,10 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IRONMAN 70.3 Weymouth — Countdown</title>
-<meta name="description" content="Live countdown to IRONMAN 70.3 Weymouth — 20 September 2026">
-<meta property="og:title" content="🏊‍♂️🚴‍♂️🏃‍♂️ IRONMAN 70.3 Weymouth Countdown">
-<meta property="og:description" content="Race day is coming. Are you ready?">
+<title>IRONMAN 70.3 Weymouth — Live Countdown</title>
+<meta name="description" content="Live countdown to IRONMAN 70.3 Weymouth — 20 September 2026 · Jurassic Coast, Dorset, UK">
+
+<!-- WhatsApp / Social Media Preview Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="🏊‍♂️🚴‍♂️🏃‍♂️ IRONMAN 70.3 Weymouth — Live Countdown">
+<meta property="og:description" content="20 Sept 2026 · 1.2mi swim · 56mi bike · 13.1mi run · Jurassic Coast, Dorset, UK — Tap to see the live countdown!">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="🏊‍♂️🚴‍♂️🏃‍♂️ IRONMAN 70.3 Weymouth — Live Countdown">
+<meta name="twitter:description" content="20 Sept 2026 · Jurassic Coast, Dorset, UK — Tap to see the live countdown!">
+<meta name="twitter:image" content="og-image.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
 <style>
@@ -252,11 +265,49 @@
     color: var(--muted);
     letter-spacing: 0.05em;
     animation: fadeUp 0.8s ease-out 1.1s both;
+    margin-bottom: 1.8rem;
   }
 
   .location strong {
     color: var(--text);
     font-weight: 400;
+  }
+
+  /* Official link */
+  .official-link {
+    animation: fadeUp 0.8s ease-out 1.25s both;
+  }
+
+  .official-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(229,35,61,0.3);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .official-link a:hover {
+    background: rgba(229,35,61,0.1);
+    border-color: var(--red);
+  }
+
+  .official-link a svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: var(--red);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   /* Race day message */
@@ -345,6 +396,13 @@
     <strong>Jurassic Coast</strong> · Weymouth, Dorset, England
   </div>
 
+  <div class="official-link">
+    <a href="https://www.ironman.com/im703-weymouth" target="_blank" rel="noopener">
+      Official Race Info — ironman.com
+      <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+
   <div class="race-day" id="raceDay">
     <h2>RACE DAY!</h2>
     <p>Go smash it 🔥</p>
@@ -376,6 +434,8 @@
 
     if (diff <= 0) {
       $countdown.style.display = 'none';
+      document.querySelector('.disciplines').style.display = 'none';
+      document.querySelector('.date-badge').style.display = 'none';
       $raceDay.style.display = 'block';
       return;
     }
